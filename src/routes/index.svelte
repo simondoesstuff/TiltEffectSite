@@ -2,8 +2,6 @@
     import {fly} from 'svelte/transition';
     import TitleCard3D from "../components/TitleCard3D.svelte";
 
-    // --------------------------------------------------
-
     let open = false;
 </script>
 
@@ -38,7 +36,7 @@
 
     .titleCard.float {
         position: relative;
-        transform: translateY(-6rem);
+        transform: translateY(-7rem);
     }
 
     .globallyCentered {
@@ -49,6 +47,6 @@
 
     .extraLetterSpacing {
         @apply p-2;
-        letter-spacing: 0.5rem;
+        letter-spacing: 0.3rem;
     }
 </style>

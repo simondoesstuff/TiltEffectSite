@@ -20,16 +20,14 @@
 </script>
 
 
-<div bind:this={ele} class="preserve-3d titleCard" on:click>
-  <div class="translate-z-30">
-    <h1 class="select-none">SIMON WALKER</h1>
-  </div>
+<div bind:this={ele} class="titleCard preserve-3d p-3 sm:p-7 sm:px-14" on:click>
+  <h1 class="select-none translate-z-20">SIMON WALKER</h1>
 </div>
 
 
 <style>
     .titleCard {
-        @apply p-7 px-14 border-white text-5xl cursor-grab shadow-2xl;
+        @apply border-white text-5xl cursor-grab shadow-2xl text-center;
         letter-spacing: 0.5rem;
         text-rendering: geometricPrecision;
         font-family: 'Kanit', sans-serif;
@@ -42,8 +40,8 @@
         background: linear-gradient(0deg, rgb(0, 120, 164) 0%, rgb(81, 0, 181) 100%);
     }
 
-    .translate-z-30 {
-        transform: translateZ(30px);
+    .translate-z-20 {
+        transform: translateZ(20px);
     }
 
     .preserve-3d {
