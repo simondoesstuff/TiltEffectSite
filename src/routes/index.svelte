@@ -1,5 +1,6 @@
 <script>
     import VanillaTilt from "vanilla-tilt";
+    import { fly } from 'svelte/transition';
     import {onDestroy, onMount} from "svelte";
 
     let tiltElements;
@@ -8,9 +9,10 @@
         tiltElements = document.querySelectorAll('.vanillatilt');
 
         VanillaTilt.init(tiltElements, {
-            max: 25,
-            speed: 400,
-            scale: 2,
+            speed: 500,
+            max: 10,
+            perspective: 500,
+            scale: 1.2,
             glare: true
         });
     })
@@ -20,16 +22,38 @@
             element.vanillaTilt.destroy();
         });
     })
+
+    // --------------------------------------------------
+
+    let open = false;
 </script>
+
+
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
+</svelte:head>
 
 
 
 <main class="globallyCentered">
-    <div class="preserve-3d titleCard vanillatilt">
-      <div class="translate-z-20">
-        <h1>SIMON WALKER</h1>
+  <div>
+
+    <div class="preserve-3d titleCard vanillatilt" on:click={() => open = !open}>
+      <div class="translate-z-30">
+        <h1 class="select-none">SIMON WALKER</h1>
       </div>
     </div>
+
+    {#if open}
+<!--      <div class="text-center mt-16">-->
+<!--        <div transition:fly={{ y: -100, duration: 2000 }}>simon@simonwakler.tech</div>-->
+<!--        <div transition:fly={{ y: -100, duration: 2000 }}>970-581-6899</div>-->
+<!--      </div>-->
+    {/if}
+
+  </div>
 </main>
 
 
@@ -41,13 +65,16 @@
   }
 
   .titleCard {
-      @apply p-5 border-white;
+      @apply p-7 px-14 border-white text-5xl cursor-grab;
+      letter-spacing: 0.5rem;
+      text-rendering: geometricPrecision;
+      font-family: 'Kanit', sans-serif;
   }
 
   .titleCard:hover {
       @apply border-2;
-      background: rgb(255,222,137);
-      background: linear-gradient(90deg, rgba(255,222,137,1) 0%, rgba(115,0,255,1) 100%);
+      background: rgb(0, 120, 164);
+      background: linear-gradient(0deg, rgb(0, 120, 164) 0%, rgb(81, 0, 181) 100%);
   }
 
   .globallyCentered {
@@ -56,8 +83,8 @@
     height: 100%;
   }
 
-  .translate-z-20 {
-    transform: translateZ(20px);
+  .translate-z-30 {
+    transform: translateZ(30px);
   }
 
   .preserve-3d {
