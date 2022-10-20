@@ -26,7 +26,7 @@
 
 
 <!--    Jumpscare photo   -->
-{#if open}
+<!-- {#if open}
   <div class="globallyCentered -z-20 w-full transparencyGradient">
     <img
         src="./personalPicture.png"
@@ -35,7 +35,7 @@
         alt=""
     >
   </div>
-{/if}
+{/if} -->
 
 
 <style>
